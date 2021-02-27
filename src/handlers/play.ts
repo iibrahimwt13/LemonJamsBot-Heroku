@@ -13,7 +13,7 @@ export const playHandler = Composer.command('play', async ctx => {
     const text = ctx.message.text.slice(commandEntity.length + 1);
 
     if (!text) {
-        await ctx.reply('You need to specify a YouTube URL.');
+        await ctx.reply('You needd to specify a YouTube URL.');
         return;
     }
 
