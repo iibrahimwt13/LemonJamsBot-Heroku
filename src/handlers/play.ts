@@ -1,11 +1,11 @@
 import { Composer } from 'telegraf';
 import { addToQueue } from '../tgcalls';
 
-export const playHandler = Composer.command('play', async ctx => {
+export const playHandler = Composer.command('oynat', async ctx => {
     const { chat } = ctx.message;
 
     if (chat.type !== 'supergroup') {
-        await ctx.reply('I can only play in groups.');
+        await ctx.reply('Sadece grupların içinde çalabilirim.');
         return;
     }
 
@@ -13,11 +13,11 @@ export const playHandler = Composer.command('play', async ctx => {
     const text = ctx.message.text.slice(commandEntity.length + 1);
 
     if (!text) {
-        await ctx.reply('You needd to specify a YouTube URL.');
+        await ctx.reply('Bir YouTube URL'si belirtmeniz gerekiyor.');
         return;
     }
 
     const index = await addToQueue(chat, text);
 
-    await ctx.reply(index === 0 ? 'Playing.' : `Queued at position ${index}.`);
+    await ctx.reply(index === 0 ? 'Oynatılıyor...' : `Listede sıraya alındı ${index}.`);
 });
