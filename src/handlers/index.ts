@@ -1,6 +1,6 @@
 import { bot } from '../bot';
 
-import { playHandler } from './oynata';
+import { playHandler } from './oynat';
 import { queueHandler } from './queue';
 import { pauseHandler } from './dur';
 import { skipHandler } from './geç';
